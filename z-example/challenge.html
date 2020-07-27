@@ -22,7 +22,7 @@
   </style>
 
   <script id='handlers'>
-    function _(event) {
+    function first(event) {
       debugger;
       console.assert(event.type === 'click', 'first, event.type');
       console.assert(event.target.id === 'user-action', 'first, event.target.id');
@@ -32,7 +32,7 @@
     }
     function second(event) {
       debugger;
-      console.assert(event.type === '_', 'second, event.type');
+      console.assert(event.type === 'change', 'second, event.type');
       console.assert(event.target.id === 'selector', 'second, event.target.id');
       console.assert(event.target.nodeName === 'SELECT', 'second, event.target.id');
     }
@@ -43,7 +43,7 @@
   <section id='user-interface'>
     <form class='inputs' id='inputs'>
       <input name='value' type='text' />
-      <select name="type" id='_'>
+      <select name="type" id='selector'>
         <option value="string">string</option>
         <option value="number">number</option>
         <option value="boolean">boolean</option>
@@ -54,7 +54,7 @@
   </section>
 
   <script id='listener'>
-    document.getElementById('_').addEventListener('click', first);
+    document.getElementById('user-action').addEventListener('click', first);
     document.getElementById('selector').addEventListener('change', second);
   </script>
 </body>
